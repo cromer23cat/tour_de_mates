@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accés Directe Píndoles de Càlcul</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Fons negre com la web original */
+            color: #ffffff;
+        }
+        .pildora-link {
+            transition: all 0.2s ease;
+            background: #111111;
+            border: 1px solid #333333;
+        }
+        .pildora-link:hover {
+            background: #222222;
+            border-color: #facc15; /* Groc del Tour */
+            transform: translateX(10px);
+        }
+        .yellow-bullet {
+            color: #facc15;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <header class="mb-10 border-b border-zinc-800 pb-6">
+            <h1 class="text-3xl font-black text-yellow-400 tracking-tight uppercase">El Tour de Mates</h1>
+            <p class="text-zinc-400 mt-2 text-lg italic">Accés directe als apartats seleccionats</p>
+        </header>
+
+        <!-- SECCIONS GENERALS -->
+        <section class="mb-12">
+            <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-widest mb-4">Seccions Generals</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="https://eltourdemates.wordpress.com/pildoras-de-calculo-mental/" target="_blank" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-yellow-400 transition-all flex items-center justify-between group">
+                    <span class="font-bold">Pàgina Principal Píldoras</span>
+                    <span class="text-yellow-400 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a href="https://eltourdemates.wordpress.com/" target="_blank" class="p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-yellow-400 transition-all flex items-center justify-between group">
+                    <span class="font-bold">Inici Tour de Mates</span>
+                    <span class="text-yellow-400 group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- LLISTA EXACTA DE LA IMATGE -->
+        <section>
+            <h2 class="text-sm font-bold text-zinc-500 uppercase tracking-widest mb-4">Píldoras de Càlcul Mental</h2>
+            <div class="flex flex-col gap-3" id="linksContainer">
+                <!-- Generat segons la imatge de l'usuari -->
+            </div>
+        </section>
+
+        <footer class="mt-20 text-center text-zinc-600 text-xs">
+            <p>Aquest índex s'ha creat per facilitar l'accés ràpid als continguts de eltourdemates.wordpress.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Llistat extret exactament de la imatge de l'usuari amb les URLs corregides
+        const llistaMenu = [
+            { t: "Sumas y restas: modelo de barras", u: "sumas-y-restas-modelo-de-barras/" },
+            { t: "Completar números redondos", u: "completar-numeros-redondos/" },
+            { t: "Completar la cantidad", u: "completar-la-cantidad/" },
+            { t: "Sumar de izquierda a derecha", u: "sumar-de-izquierda-a-derecha/" },
+            { t: "Reordena y opera", u: "reordena-y-opera/" },
+            { t: "Jerarquía de operaciones", u: "jerarquia-de-operaciones/" },
+            { t: "Sumas y restas de números acabados en 1 o 9", u: "sumas-y-restas-de-numeros-acabados-en-1-o-9/" },
+            { t: "Multiplicar por 9 y por 11", u: "multiplicar-por-9-y-por-11/" },
+            { t: "Multiplicar y dividir por potencias de 2", u: "multiplicar-y-dividir-por-potencias-de-2/" },
+            { t: "Multiplicar y dividir por 2, 4, 0.5 y 0.25", u: "multiplicar-y-dividir-por-2-4-0-5-y-0-25/" },
+            { t: "Multiplicar y dividir por 20 y por 5", u: "multiplicar-y-dividir-por-20-y-por-5/" },
+            { t: "Porcentajes", u: "porcentajes/" },
+            { t: "Factorización", u: "factorizacion/" },
+            { t: "Simplificar fracciones", u: "simplificar-fracciones/" },
+            { t: "Juegos y actividades para entrenar el cálculo mental", u: "juegos-y-actividades-para-entrenar-el-calculo-mental/" }
+        ];
+
+        const container = document.getElementById('linksContainer');
+        const baseUrl = "https://eltourdemates.wordpress.com/pildoras-de-calculo-mental/";
+
+        llistaMenu.forEach(item => {
+            const a = document.createElement('a');
+            a.href = baseUrl + item.u;
+            a.target = "_blank";
+            a.className = "pildora-link p-4 rounded-lg flex items-center";
+            a.innerHTML = `
+                <span class="yellow-bullet">–</span>
+                <span class="text-zinc-100 font-medium">${item.t}</span>
+            `;
+            container.appendChild(a);
+        });
+    </script>
+</body>
+</html>
